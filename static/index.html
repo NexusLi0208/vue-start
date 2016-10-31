@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="fonts/font-awesome-4.6.3/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div id="vm">
+		<div class="main">
+            <div class='floatBox'>
+                <p>操作区</p>
+            <button  class="btn btn-success mg-b20" @click="getItem">获取案例</button>
+			 <button  class="btn btn-cancel" @click="removeItem">清空案例</button>
+            </div>
+			<div class="main-cantainer">
+				<div class="items" v-for="(item,index) in items">
+					<header>{{item.id}}<span class='close-btn' @click="delItem(index)"><i class="fa fa-times"></i></span></header>
+					<p>{{item.province}}</p>
+				</div>
+			</div>
+			<div class='add-btn' v-on:click="show = !show">添加</div>
+		</div>
+                 
+		<div id='modal-main' v-if="show">
+			<div class="modal-bg"  v-on:click='show=false'></div>
+				<div class='add-modal animated fadeInDown'>
+					<div class='modal-head'>添加案例</div>
+					<div class='modal-body'>
+						<div class="input-row">
+							<label for="case-title">案例名：</label>
+							<input type="text" placeholder='请输入案例名' v-model='item.id' class="input-text">
+						</div>
+						<div class="input-row">
+							<label for="case-contant">案例内容：</label>
+							<textarea class="input-textarea" placeholder="请输入案例内容" v-model='item.province'></textarea>
+						</div>
+					</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id='save-btn'  v-on:click='save'>保存</button>
+                    <button class="btn btn-cancel" id='cancel-btn'  v-on:click="show = false">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../sea-modules/jquery.js"></script>
+	<script src="../sea-modules/vue.js"></script>
+	<script src="js/common.js"></script>
+</body> 
+</html>
