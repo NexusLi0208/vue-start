@@ -1,11 +1,13 @@
 // 初始化代码:
-$(function () {
+'use strict';
+ $(function () {
     var vm = new Vue({
         el: '#vm',
         data: {
             name: 'Robot',
             age: 15,
             show: false,
+            ok:false,
             city: 'sh',
             item: {
                 id: '',
@@ -27,7 +29,7 @@ $(function () {
                 else {
                     this.items.push(this.item);
                     //将input中的数据重置
-                    this.item = '';
+                    this.item = {};
                     vm.show = false;
                 }
             },

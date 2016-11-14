@@ -12,7 +12,7 @@
 	<div id="vm">
 		<div class="main">
             <div class='floatBox'>
-                <p>操作区</p>
+                <p>浮动窗口</p>
             <button  class="btn btn-success mg-b20" @click="getItem">获取案例</button>
 			 <button  class="btn btn-cancel" @click="removeItem">清空案例</button>
             </div>
@@ -25,7 +25,7 @@
 			<div class='add-btn' v-on:click="show = !show">添加</div>
 		</div>
                  
-		<div id='modal-main' v-if="show">
+		<div id='modal-main' v-show="show">
 			<div class="modal-bg"  v-on:click='show=false'></div>
 				<div class='add-modal animated fadeInDown'>
 					<div class='modal-head'>添加案例</div>
@@ -40,14 +40,15 @@
 						</div>
 					</div>
 				<div class="modal-footer">
-					<button class="btn btn-success" id='save-btn'  v-on:click='save'>保存</button>
-                    <button class="btn btn-cancel" id='cancel-btn'  v-on:click="show = false">取消</button>
+					<button class="btn btn-success" id='save-btn'   @click='save'>保存</button>
+                    <button class="btn btn-cancel" id='cancel-btn'  @click="show=false">取消</button>
 				</div>
+				
 			</div>
 		</div>
 	</div>
 	<script src="../sea-modules/jquery.js"></script>
-	<script src="../sea-modules/vue.js"></script>
+	<script src="../node_modules/vue/dist/vue.min.js"></script>
 	<script src="js/common.js"></script>
 </body> 
 </html>
